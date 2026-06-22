@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>React Search Filter</title>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<style>
+    .light {
+  background-color: white;
+  color: black;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+}
+</style>
+<body>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    function App() {
+        const count=React.useRef(0);
+
+
+        return (
+            <>
+            <h1>Count:{count.current}</h1>
+            <button onClick={()=>(count.curent++)}>INC</button>
+
+            
+            </>
+        );
+}
+
+    const root = ReactDOM.createRoot(
+      document.getElementById("root")
+    );
+
+    root.render(<App />);
+
+  </script>
+
+</body>
+</html>

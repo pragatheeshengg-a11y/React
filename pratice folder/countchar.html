@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>React Search Filter</title>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function App() {
+      const [letters,setLetters]=React.useState("");
+      const word=letters.trim()?letters.trim().split(/\s+/).length:0
+      return(
+         <div>
+            <h1>COUNT LETTERS AND WORDS</h1>
+            <textarea
+            value={letters}
+            onChange={(e)=>setLetters(e.target.value)}
+
+            />
+            <h3>Count:{letters.length}</h3>
+            <h3>Word:{word}</h3>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(
+      document.getElementById("root")
+    );
+
+    root.render(<App />);
+
+  </script>
+
+</body>
+</html>

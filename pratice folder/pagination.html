@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pagination</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+        function App(){
+            const users = [
+                "John",
+                "Alice",
+                "Bob",
+                "David",
+                "Emma",
+                "Sam",
+                "Tom",
+                "Mike",
+                "Vicky"
+            ];
+            const [page,setpage]=React.useState(1);
+            const pageperuser=3;
+
+            const startindex=(page-1)*pageperuser;
+            const endindex=(startindex+pageperuser);
+
+            const filtereduser=users.slice(startindex,endindex);
+
+            
+            return(
+                <>
+                    <h1>PAGINATION</h1>
+                    <ul>
+                        {filtereduser.map((user,index)=>(
+                            <li key={index}>{user}</li>
+                        ))};
+                    </ul>
+                    <button 
+                    disabled={page===1}
+                    onClick={()=>setpage(page-1)}
+                     >
+                        PRE
+                    </button>
+                    <span>Page:{page}</span>
+                    <button
+                    disabled={endindex >=users.length}
+                    onClick={()=>(setpage(page+1))}
+                    >
+                        NEXT</button>
+                   
+                </>
+            );
+        }
+      
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App/>);
+    </script>
+  </body>
+</html>
